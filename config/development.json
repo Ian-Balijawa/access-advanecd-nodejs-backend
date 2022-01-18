@@ -1,0 +1,5 @@
+{
+	"name": "access-advanced-systems backend -dev",
+	"db": "mongodb://localhost/access-advanced-systems",
+	"PORT": 8080
+}
