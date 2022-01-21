@@ -9,6 +9,7 @@ const systemSchema = new mongoose.schema({
 		trim: true,
 		minlength: 5,
 		maxlength: 255,
+		lowercase: true,
 	},
 	price: {
 		type: Number,
@@ -31,7 +32,7 @@ const systemSchema = new mongoose.schema({
 		default: Date.now,
 	},
 });
-systemSchema.plugin(timestampsPlugin)
+systemSchema.plugin(timestampsPlugin);
 const System = mongoose.model('System', systemSchema);
 
 function validateSystem(system) {
