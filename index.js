@@ -54,10 +54,10 @@ app.use(express.json());
 app.use(helmet);
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
-app.use("/v1.0.0/users", users)
+app.use('/v1.0.0/users', users);
+app.use('/v1.0.0/systems', systems);
 // app.use("/v1.0.0/customers", customers)
 // app.use("/v1.0.0/purchases", purchases)
-// app.use("/v1.0.0/systems", systems)
 
 const PORT = process.env.PORT || config.get('PORT');
 const server = app.listen(PORT, () =>
