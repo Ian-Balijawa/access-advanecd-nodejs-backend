@@ -23,7 +23,7 @@ const salesSchema = new mongoose.schema({
 		required: true,
 	},
 
-	system: {
+	Product: {
 		type: new mongoose.schema({
 			name: {
 				type: String,
@@ -62,7 +62,7 @@ const Sale = mongoose.model('Sale', salesSchema);
 function validateSale(sale) {
 	const schema = Joi.object({
 		customerId: Joi.string().required(),
-		systemId: Joi.string().required(),
+		ProductId: Joi.string().required(),
 	});
 
 	return schema.validate(sale);

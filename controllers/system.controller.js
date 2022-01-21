@@ -1,14 +1,14 @@
-const { System: SystemModel } = require('../models/system.model');
+const { Product: ProductModel } = require('../models/Product.model');
 
-const systemController = {};
+const ProductController = {};
 
-systemController.createSystem = (systemData) => {
+ProductController.createProduct = (ProductData) => {
 	return new Promise((resolve, reject) => {
-		let newSystem = new SystemModel();
+		let newProduct = new ProductModel();
 		const { name, price, version, description, size, lastUpdate } =
-			systemData;
+			ProductData;
 
-		newSystem = {
+		newProduct = {
 			name,
 			price,
 			version,
@@ -16,18 +16,18 @@ systemController.createSystem = (systemData) => {
 			size,
 			lastUpdate,
 		};
-		SystemModel.create(newSystem)
-			.then((systemInstance) => {
-				systemInstance = systemInstance.toObject();
-				systemInstance.systemId = systemInstance._id;
+		ProductModel.create(newProduct)
+			.then((ProductInstance) => {
+				ProductInstance = ProductInstance.toObject();
+				ProductInstance.ProductId = ProductInstance._id;
 
-				delete systemInstance._id;
-				delete systemInstance._v;
+				delete ProductInstance._id;
+				delete ProductInstance._v;
 
-				resolve(systemInstance);
+				resolve(ProductInstance);
 			})
 			.catch((err) => reject(err));
 	});
 };
 
-module.exports = systemController;
+module.exports = ProductController;

@@ -1,4 +1,4 @@
 {
-	"name": "access-advanced-systems backend -prod",
+	"name": "access-advanced-Products backend -prod",
 	"db": "mongodb://localhost/domain-deployment"
 }

@@ -20,15 +20,23 @@ const userSchema = new mongoose.schema({
 		trim: true,
 	},
 	isGold: {
+		// customer who had bought mutiple times
 		type: Boolean,
 		required: true,
-		default: false,
+		default: function (value) {
+			return this.ProductsBought > 1 ? true : false;
+		},
 	},
 	phone: {
 		type: String,
 		required: true,
 		minlength: 10,
 		maxlength: 10,
+	},
+	ProductsBought: {
+		type: Number,
+		min: 0,
+		trim,
 	},
 });
 

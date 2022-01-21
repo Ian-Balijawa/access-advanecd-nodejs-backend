@@ -2,35 +2,39 @@ const express = require('express');
 const router = express.Router();
 const debug = require('debug');
 const _ = require('lodash');
-const authenticate = require('../middlewares/auth');
 const isAdmin = require('../middlewares/admin');
+const authenticate = require('../middlewares/auth');
 const validateObjectId = require('../middlewares/validateObjectId');
-const systemController = require('../controllers/system.controller');
-const { validate: validateSystem, System } = require('../models/system.model');
+const ProductController = require('../controllers/Product.controller');
+const {
+	validate: validateProduct,
+	Product,
+} = require('../models/Product.model');
 
-// get all the currently availabe systems.
+// get all the currently availabe Products.
 router.get('/', async (req, res) => {
-	const result = await System.find({}).sort({ name: 1 });
+	const result = await Product.find({}).sort({ name: 1 });
 
 	if (!result)
 		return res
 			.status(404)
-			.json({ message: 'No system uploaded in the database yet!' });
+			.json({ message: 'No Product uploaded in the database yet!' });
 
 	return res.status(200).json({ result });
 });
-// getting a single system from the database by an admin
+
+// getting a single Product from the database by an admin
 router.get(
 	'/:id',
 	[authenticate, isAdmin, validateObjectId],
 	async (req, res) => {
 		const { id } = req.params;
-		const result = await System.findById({ userId: id });
+		const result = await Product.findById(userId);
 
 		if (!result)
 			return res
 				.status(404)
-				.json({ message: 'No system with the given id found!' });
+				.json({ message: 'No Product with the given id found!' });
 
 		return res.status(200).json({ result });
 	}
@@ -38,34 +42,34 @@ router.get(
 
 // incase we need some kind of authentication
 router.get('/', authenticate, async (req, res) => {
-	const result = await System.find({}).sort({ name: 1 });
+	const result = await Product.find({}).sort({ name: 1 });
 
 	if (!result)
 		return res
 			.status(404)
-			.json({ message: 'No system uploaded in the database yet!' });
+			.json({ message: 'No Product uploaded in the database yet!' });
 
 	return res.status(200).json({ result });
 });
 
 router.post('/', [authenticate, isAdmin], async (req, res) => {
-	const systemData = req.body;
-	const { errors } = validateSystem(systemData);
+	const ProductData = req.body;
+	const { errors } = validateProduct(ProductData);
 	if (errors) {
 		debug(errors);
 		return res.status(400).json({ message: errors.details[0].message });
 	}
 
-	const result = await System.findOne({ name: sytemData.name });
+	const result = await Product.findOne({ name: sytemData.name });
 	if (result)
 		return res.status(400).json({
-			message: 'system with this name already exists in the database',
+			message: 'Product with this name already exists in the database',
 		});
 
-	const system = await systemController.createSystem(systemData);
-	debug(system);
+	const Product = await ProductController.createProduct(ProductData);
+	debug(Product);
 
-	return res.status(200).json({ system });
+	return res.status(200).json({ Product });
 });
 
 router.put(
@@ -75,13 +79,13 @@ router.put(
 		const { id } = req.params;
 		const { name, price, version, lastUpdate, description, size } =
 			req.body;
-		const { errors } = validateSystem(req.body);
+		const { errors } = validateProduct(req.body);
 		if (errors) {
 			debug(errors);
 			return res.status(400).json({ error: errors.details[0].message });
 		}
 
-		const system = await System.findByIdAndUpdate(
+		const Product = await Product.findByIdAndUpdate(
 			id,
 			{
 				$set: {
@@ -96,43 +100,43 @@ router.put(
 			{ new: true }
 		);
 
-		return res.status(200).json({ system });
+		return res.status(200).json({ Product });
 	}
 );
 
-// delete all systems from the database
+// delete all Products from the database
 router.delete('/', [authenticate, isAdmin], async (req, res) => {
-	const deletedData = await System.deleteMany();
+	const deletedData = await Product.deleteMany();
 
 	if (!deletedData) {
 		debug(deletedData);
 		return res.status(404).json({
 			message:
-				'No data found to delete. The database contains no systems.',
+				'No data found to delete. The database contains no Products.',
 		});
 	}
 
 	return res.status(200).json(deletedData);
 });
 
-// to delete a specific system from the database
+// to delete a specific Product from the database
 router.delete(
 	'/:id',
 	[authenticate, isAdmin, validateObjectId],
 	async (req, res) => {
-		const { id: systemId } = req.params;
+		const { id: ProductId } = req.params;
 
-		const deletedSystem = await System.findByIdAndRemove(systemId);
-		debug(deletedSystem);
+		const deletedProduct = await Product.findByIdAndRemove(ProductId);
+		debug(deletedProduct);
 
-		if (!deletedSystem) {
-			debug(deletedSystem);
+		if (!deletedProduct) {
+			debug(deletedProduct);
 			return res.status(404).json({
-				error: 'System not found in the database. It must have been deleted already or did not exist in the database.',
+				error: 'Product not found in the database. It must have been deleted already or did not exist in the database.',
 			});
 		}
 
-		return res.status(200).json({ deletedSystem });
+		return res.status(200).json({ deletedProduct });
 	}
 );
 

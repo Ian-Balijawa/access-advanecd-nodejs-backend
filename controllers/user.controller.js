@@ -8,7 +8,7 @@ userController.createUser = (userData) => {
 	return new Promise((resolve, reject) => {
 		let newUser = new UserModel();
 		const { name, email, password, isAdmin } = userData;
-		
+
 		newUser = {
 			name,
 			email,
