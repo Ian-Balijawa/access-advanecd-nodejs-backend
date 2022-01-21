@@ -184,8 +184,28 @@ router.delete(
 		const { id: userId } = req.params;
 		const deletedUser = await User.findByIdAndRemove(userId);
 
+		if (!deletedUser) {
+			return res
+				.status(404)
+				.json({ message: 'No user with given id found.' });
+		}
+
 		return res.status(200).json({ deletedUser });
 	}
 );
 
+router.delete('/', [authenticateUser, isAdmin], async (req, res) => {
+	const deletedUsers = await User.deleteMany({});
+
+	debug(deletedUsers);
+	if (!deletedUsers) {
+		debug(deletedUsers);
+		return res.status(404).json({
+			message:
+				'No users in the database found. All users must have been deleted previously',
+		});
+	}
+
+	return res.status(200).json({ deletedUsers });
+});
 module.express = router;
