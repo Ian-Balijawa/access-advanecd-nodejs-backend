@@ -17,22 +17,20 @@ const { logger } = require('./utils/logger');
 
 const app = express();
 
-// require('./connections/mongodb.connection');
-mongoose
-  .connect('mongodb://localhost/access-advanced', {
-    useNewUrlParser: true,
-    // useCreateIndexes: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('connected to mongodb'))
-  .catch((err) => console.log(err));
-
 if (!config.get('jwtPrivateKey')) {
-  logger.error('FATAL ERROR: jwtPrivateKey is not defined');
+	logger.error('FATAL ERROR: jwtPrivateKey is not defined');
 
-  process.exit(1);
+	process.exit(1);
+}
+
+const connectToDatabase = require('./start/initializeDB');
+
+async function establishDatabaseConnection() {
+	await connectToDatabase();
 }
 
 const server = initializeApp(app);
+
+establishDatabaseConnection();
 
 module.exports = server;

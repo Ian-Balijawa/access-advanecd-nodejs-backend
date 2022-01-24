@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const { stream } = require('../utils/logger');
 const { CORSSelfEnded, CORS } = require('../middlewares/cors');
-const appRouter = require('../routes/index');
+const appRouter = require('../Router');
 const { logger } = require('../utils/logger');
 const express = require('express');
 const helmet = require('helmet');
@@ -11,14 +11,7 @@ const { APIException } = require('../errors/api.error');
 const config = require('config');
 
 module.exports = function (app) {
-  // Morgan: is another HTTP request logger middleware for Node.js.
-  // It simplifies the process of logging requests to your application.
-  // You might think of Morgan as a helper that collects logs from your server, such as your request logs.
-  // It saves developers time because they don’t have to manually create common logs.
-  // It standardizes and automatically creates request logs.
-  // Morgan can operate standalone, but commonly it’s used in combination with Winston.
-  // Winston is able to transport logs to an external location, or query them when analyzing a problem.
-  app.use(
+   app.use(
     morgan(
       function (tokens, req, res) {
         let ip = req.header('x-forwaded-for') || req.connection.remoteAddress;
@@ -80,3 +73,11 @@ module.exports = function (app) {
     logger.info(`> started server and listening on port ${PORT}...`)
   );
 };
+
+ // Morgan: is an HTTP request logger middleware for Node.js.
+  // It simplifies the process of logging requests to your application.
+  // You might think of Morgan as a helper that collects logs from your server, such as your request logs.
+  // It saves developers time because they don’t have to manually create common logs.
+  // It standardizes and automatically creates request logs.
+  // Morgan can operate standalone, but commonly it’s used in combination with Winston.
+  // Winston is able to transport logs to an external location, or query them when analyzing a problem.

@@ -1,6 +1,6 @@
 module.exports = { 
   db: {
-    master: `mongodb://localhost/obiviadbserver`,
+    master: 'mongodb://localhost/access-advanced',
     options: { auto_reconnect: true, reconnectTries: Number.MAX_SAFE_INTEGER, poolSize: 100, useCreateIndex: true,useUnifiedTopology: true,useNewUrlParser: true, readPreference: "primaryPreferred" }
     }, 
     appSecret: "myapisecretjsdfsjkdfjkdsfuwyertuewfjdscsbcmnsbvdsmnfbdmnsbfmndsuyewruyewtuydsbfdshjfgdsfgdjsvmnbvbcxxmnvbvjkmnvbcxmbvcmxbvbxcmnveriugtiuritunvndfbvjdfbvbhjvbfnbvjdfgfbvjbdf",

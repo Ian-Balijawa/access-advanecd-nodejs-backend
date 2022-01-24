@@ -1,6 +1,6 @@
 module.exports = {
   db: {
-    master: `mongodb://localhost/access-advanced`,
+    master: 'mongodb://localhost/access-advanced',
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
