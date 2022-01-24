@@ -1,5 +1,0 @@
-{
-	"name": "access-advanced-Products backend -dev",
-	"db": "mongodb://localhost/access-advanced-Products",
-	"PORT": 8080
-}

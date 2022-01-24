@@ -14,16 +14,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
     "config": "^3.3.7",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "debug": "^4.3.3",
     "express": "^4.17.2",
     "express-async-errors": "^3.1.1",
     "express-validator": "^6.14.0",
+    "fawn": "^2.1.5",
     "helmet": "^5.0.1",
     "joi": "^17.5.0",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
     "mongoose": "^6.1.7",
     "mongoose-timestamp": "^0.6.0",
     "morgan": "^1.10.0",
@@ -32,6 +36,6 @@
   },
   "devDependencies": {
     "jest": "^27.4.7",
-		"nodemon": "^2.0.7"
-	}
+    "nodemon": "^2.0.7"
+  }
 }

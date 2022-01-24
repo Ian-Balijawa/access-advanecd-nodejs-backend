@@ -1,4 +1,0 @@
-{
-	"jwtPrivateKey": "",
-	"db": "mongodb://localhost/access-advanced-Products"
-}
