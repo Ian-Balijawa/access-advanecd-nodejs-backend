@@ -1,0 +1,502 @@
+2022-01-24 15:05:24 [error]: 	uncaughtException: logger is not defined
+ReferenceError: logger is not defined
+    at Server.<anonymous> (D:\code\access-backend\index.js:87:33)
+    at Object.onceWrapper (node:events:509:28)
+    at Server.emit (node:events:390:28)
+    at emitListeningNT (node:net:1368:10)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  "error": {},
+  "stack": "ReferenceError: logger is not defined\n    at Server.<anonymous> (D:\\code\\access-backend\\index.js:87:33)\n    at Object.onceWrapper (node:events:509:28)\n    at Server.emit (node:events:390:28)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "exception": true,
+  "date": "Mon Jan 24 2022 07:05:24 GMT-0800 (Pacific Standard Time)",
+  "process": {
+    "pid": 3932,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "index.js"
+    ],
+    "memoryUsage": {
+      "rss": 40165376,
+      "heapTotal": 20365312,
+      "heapUsed": 13849888,
+      "external": 1426260,
+      "arrayBuffers": 161654
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 12784
+  },
+  "trace": [
+    {
+      "column": 33,
+      "file": "D:\\code\\access-backend\\index.js",
+      "function": null,
+      "line": 87,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "Object.onceWrapper",
+      "line": 509,
+      "method": "onceWrapper",
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "Server.emit",
+      "line": 390,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:net",
+      "function": "emitListeningNT",
+      "line": 1368,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "node:internal/process/task_queues",
+      "function": "processTicksAndRejections",
+      "line": 82,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2022-01-24 15:05:43 [error]: 	uncaughtException: logger is not defined
+ReferenceError: logger is not defined
+    at Server.<anonymous> (D:\code\access-backend\index.js:87:33)
+    at Object.onceWrapper (node:events:509:28)
+    at Server.emit (node:events:390:28)
+    at emitListeningNT (node:net:1368:10)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  "error": {},
+  "stack": "ReferenceError: logger is not defined\n    at Server.<anonymous> (D:\\code\\access-backend\\index.js:87:33)\n    at Object.onceWrapper (node:events:509:28)\n    at Server.emit (node:events:390:28)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "exception": true,
+  "date": "Mon Jan 24 2022 07:05:42 GMT-0800 (Pacific Standard Time)",
+  "process": {
+    "pid": 5328,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "index.js"
+    ],
+    "memoryUsage": {
+      "rss": 40615936,
+      "heapTotal": 20365312,
+      "heapUsed": 13895456,
+      "external": 2578405,
+      "arrayBuffers": 161654
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 12802
+  },
+  "trace": [
+    {
+      "column": 33,
+      "file": "D:\\code\\access-backend\\index.js",
+      "function": null,
+      "line": 87,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "Object.onceWrapper",
+      "line": 509,
+      "method": "onceWrapper",
+      "native": false
+    },
+    {
+      "column": 28,
+      "file": "node:events",
+      "function": "Server.emit",
+      "line": 390,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:net",
+      "function": "emitListeningNT",
+      "line": 1368,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "node:internal/process/task_queues",
+      "function": "processTicksAndRejections",
+      "line": 82,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2022-01-24 15:06:19 [info]: 	Server up and running on port 3000 
+2022-01-24 15:08:47 [info]: 	Server up and running on port 3000 
+2022-01-24 15:09:03 [info]: 	Server up and running on port 3000 
+2022-01-24 15:09:11 [info]: 	Server up and running on port 3000 
+2022-01-24 15:09:30 [info]: 	Server up and running on port 3000 
+2022-01-24 15:09:30 [error]: 	uncaughtException: logger.info is not a function
+TypeError: logger.info is not a function
+    at Server.onListening (D:\code\access-backend\bin\www:95:11)
+    at Server.emit (node:events:402:35)
+    at emitListeningNT (node:net:1368:10)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  "error": {},
+  "stack": "TypeError: logger.info is not a function\n    at Server.onListening (D:\\code\\access-backend\\bin\\www:95:11)\n    at Server.emit (node:events:402:35)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "exception": true,
+  "date": "Mon Jan 24 2022 07:09:30 GMT-0800 (Pacific Standard Time)",
+  "process": {
+    "pid": 2600,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\bin\\www",
+      "--watchAll"
+    ],
+    "memoryUsage": {
+      "rss": 40681472,
+      "heapTotal": 20627456,
+      "heapUsed": 14029464,
+      "external": 1426260,
+      "arrayBuffers": 161654
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 13030
+  },
+  "trace": [
+    {
+      "column": 11,
+      "file": "D:\\code\\access-backend\\bin\\www",
+      "function": "Server.onListening",
+      "line": 95,
+      "method": "onListening",
+      "native": false
+    },
+    {
+      "column": 35,
+      "file": "node:events",
+      "function": "Server.emit",
+      "line": 402,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:net",
+      "function": "emitListeningNT",
+      "line": 1368,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "node:internal/process/task_queues",
+      "function": "processTicksAndRejections",
+      "line": 82,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2022-01-24 15:09:55 [info]: 	Server up and running on port 3000 
+2022-01-24 15:09:55 [error]: 	uncaughtException: logger.info is not a function
+TypeError: logger.info is not a function
+    at Server.onListening (D:\code\access-backend\bin\www.js:95:11)
+    at Server.emit (node:events:402:35)
+    at emitListeningNT (node:net:1368:10)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  "error": {},
+  "stack": "TypeError: logger.info is not a function\n    at Server.onListening (D:\\code\\access-backend\\bin\\www.js:95:11)\n    at Server.emit (node:events:402:35)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "exception": true,
+  "date": "Mon Jan 24 2022 07:09:55 GMT-0800 (Pacific Standard Time)",
+  "process": {
+    "pid": 2740,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\bin\\www",
+      "--watchAll"
+    ],
+    "memoryUsage": {
+      "rss": 40562688,
+      "heapTotal": 20365312,
+      "heapUsed": 13899784,
+      "external": 1426260,
+      "arrayBuffers": 161654
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 13055
+  },
+  "trace": [
+    {
+      "column": 11,
+      "file": "D:\\code\\access-backend\\bin\\www.js",
+      "function": "Server.onListening",
+      "line": 95,
+      "method": "onListening",
+      "native": false
+    },
+    {
+      "column": 35,
+      "file": "node:events",
+      "function": "Server.emit",
+      "line": 402,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:net",
+      "function": "emitListeningNT",
+      "line": 1368,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "node:internal/process/task_queues",
+      "function": "processTicksAndRejections",
+      "line": 82,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2022-01-24 15:10:00 [error]: 	uncaughtException: logger.info is not a function
+TypeError: logger.info is not a function
+    at Server.onListening (D:\code\access-backend\bin\www.js:95:11)
+    at Server.emit (node:events:402:35)
+    at emitListeningNT (node:net:1368:10)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  "error": {},
+  "stack": "TypeError: logger.info is not a function\n    at Server.onListening (D:\\code\\access-backend\\bin\\www.js:95:11)\n    at Server.emit (node:events:402:35)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "exception": true,
+  "date": "Mon Jan 24 2022 07:10:00 GMT-0800 (Pacific Standard Time)",
+  "process": {
+    "pid": 5784,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\bin\\www",
+      "--watchAll"
+    ],
+    "memoryUsage": {
+      "rss": 40644608,
+      "heapTotal": 20627456,
+      "heapUsed": 13821304,
+      "external": 1426260,
+      "arrayBuffers": 161654
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 13059
+  },
+  "trace": [
+    {
+      "column": 11,
+      "file": "D:\\code\\access-backend\\bin\\www.js",
+      "function": "Server.onListening",
+      "line": 95,
+      "method": "onListening",
+      "native": false
+    },
+    {
+      "column": 35,
+      "file": "node:events",
+      "function": "Server.emit",
+      "line": 402,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:net",
+      "function": "emitListeningNT",
+      "line": 1368,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "node:internal/process/task_queues",
+      "function": "processTicksAndRejections",
+      "line": 82,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2022-01-24 15:21:04 [info]: 	Running... 
+2022-01-24 15:23:56 [info]: 	Running... 
+2022-01-24 15:26:30 [info]: 	Running... 
+2022-01-24 15:27:01 [error]: 	uncaughtException: helmet is not defined
+ReferenceError: helmet is not defined
+    at Object.<anonymous> (D:\code\access-backend\index.js:48:5)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:17:47 {
+  "error": {},
+  "stack": "ReferenceError: helmet is not defined\n    at Object.<anonymous> (D:\\code\\access-backend\\index.js:48:5)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at node:internal/main/run_main_module:17:47",
+  "exception": true,
+  "date": "Mon Jan 24 2022 07:27:01 GMT-0800 (Pacific Standard Time)",
+  "process": {
+    "pid": 5612,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "index.js"
+    ],
+    "memoryUsage": {
+      "rss": 32825344,
+      "heapTotal": 16670720,
+      "heapUsed": 10650112,
+      "external": 1785253,
+      "arrayBuffers": 225543
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 14080
+  },
+  "trace": [
+    {
+      "column": 5,
+      "file": "D:\\code\\access-backend\\index.js",
+      "function": null,
+      "line": 48,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/run_main",
+      "function": "Function.executeUserEntryPoint [as runMain]",
+      "line": 81,
+      "method": "executeUserEntryPoint [as runMain]",
+      "native": false
+    },
+    {
+      "column": 47,
+      "file": "node:internal/main/run_main_module",
+      "function": null,
+      "line": 17,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2022-01-24 15:27:26 [info]: 	Running... 
+2022-01-24 15:28:21 [info]: 	Running... 
+2022-01-24 15:28:41 [info]: 	Running... 
+2022-01-24 15:29:39 [info]: 	> started server and listening on port 4000... 
+2022-01-24 15:29:48 [info]: 	> started server and listening on port 5000... 
+2022-01-24 15:33:16 [info]: 	> started server and listening on port 5000... 
+2022-01-24 15:33:33 [info]: 	> started server and listening on port 5000... 

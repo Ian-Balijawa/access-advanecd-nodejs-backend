@@ -1,13 +1,7 @@
 const express = require("express")
-const mongoose = require("mongoose")
-const bodyParser = require("body-parser");
-const passport = require("passport"); 
-const expressValidator = require("express-validator");
 const createError = require('http-errors'); 
 const cookieParser = require("cookie-parser");
-const path = require("path"); 
-const config = require('./config/config')
-const indexRouter = require('./routes/index');
+// const indexRouter = require('./routes/index');
 
 /**
  * require agenda, but still dont what it does yet
@@ -20,9 +14,12 @@ const indexRouter = require('./routes/index');
  *  });
  */
 
+
+
+
 const app = express()
 
-const {logger, stream} = require("./utils/logger");
+const {stream,logger} = require("./utils/logger");
 
 
 // Morgan: is another HTTP request logger middleware for Node.js.
@@ -48,6 +45,7 @@ app.use(require("morgan")(function(tokens, req,res){
         tokens['response-time'](req, res), 'ms'
     ].join(' ')
 }, {"stream": stream}) )
+app.use(require("helmet")())
 
 app.use(express.json({limit: '5mb'}))
 app.use(express.urlencoded({extended: false}))
@@ -56,7 +54,7 @@ app.use(cookieParser())
 const publicDir = require("path").join(__dirname, "public")
 app.use(express.static(publicDir));
 
-app.options("*", function (req, res, next) { 
+app.options("*", function (req, res) { 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,Authorization, Accept");
     res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS ,PATCH");
@@ -70,7 +68,7 @@ app.options("*", function (req, res, next) {
   });
 
   // Use Routes
-app.use('/v1.0.0', indexRouter);
+// app.use('/v1.0.0', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -78,7 +76,7 @@ app.use(function (req, res, next) {
   });
   
   // error handler
-  app.use(function (err, req, res, next) {
+  app.use(function (err, req, res) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -88,3 +86,8 @@ app.use(function (req, res, next) {
     res.render('error');
   });
   
+  const PORT = process.env.PORT || 5000;
+
+  app.listen(PORT, () => logger.info(`> started server and listening on port ${PORT}...`));
+
+  module.exports = app;
