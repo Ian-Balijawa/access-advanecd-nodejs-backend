@@ -1,14 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const _ = require('lodash');
-const bcrypt = require('bcrypt');
 const isAdmin = require('../middlewares/admin');
 const requireLogin = require('../middlewares/authCheck');
 const validateObjectId = require('../middlewares/validateObjectId');
 const UserModel = require('../models/User');
 const { validateUserPayLoad } = require('../middlewares/validateRequestBody');
 const { BadRequest } = require('../errors/api.error');
-const { UserNotFound } = require('../errors/user.error');
 const { logger } = require('../utils/logger');
 const {
 	getAllUsers,
