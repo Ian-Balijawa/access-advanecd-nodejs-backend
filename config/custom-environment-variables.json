@@ -1,0 +1,4 @@
+{
+	"jwtPrivateKey": "jwtPrivateKey",
+	"PORT": "access_port"
+}

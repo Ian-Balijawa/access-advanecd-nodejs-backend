@@ -5,12 +5,12 @@ const {logger} = require('../utils/logger');
 // It’s used by convention to determine dev-vs-prod behavior, by both server tools, build scripts, and client-side libraries.
 if (process.env.NODE_ENV === 'production') { 
 
-logger.console("========================> Production Environment <========================")
+logger.info("========================> Production Environment <========================")
   module.exports = require('./prod');
 
 } else {
 
-  logger.console("=======================> Development Environment <========================")
+  logger.info("=======================> Development Environment <========================")
   module.exports = require('./dev');
 
 }

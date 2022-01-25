@@ -1,0 +1,17 @@
+ { 
+  "db": {
+    "db-master":"mongodb://localhost/access-advanced",
+    "options": {
+      "auto_reconnect": true, 
+      "reconnectTries": 30, 
+      "poolSize": 100, 
+      "useCreateIndex": true,
+      "useUnifiedTopology": true,
+      "useNewUrlParser": true, 
+      "readPreference": "primaryPreferred" 
+    }
+  }, 
+  "appSecret": "myapisecretjsdfsjkdfjkdsfuwyertuewfjdscsbcmnsbvdsmnfbdmnsbfmndsuyewruyewtuydsbfdshjfgdsfgdjsvmnbvbcxxmnvbvjkmnvbcxmbvcmxbvbxcmnveriugtiuritunvndfbvjdfbvbhjvbfnbvjdfgfbvjbdf",
+  "cookieKey": "123123123",
+  "port": 5000
+}

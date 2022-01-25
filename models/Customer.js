@@ -43,17 +43,4 @@ const userSchema = new mongoose.Schema({
 customerSchema.plugin(timestampsPlugin);
 const Customer = mongoose.model('Customer', customerSchema);
 
-function validateCustomer(customer) {
-	const schema = Joi.object({
-		name: Joi.string().min(3).max(255).required(),
-		phone: Joi.string().min(10).max(13).required(),
-		isGold: Joi.boolean().required(),
-	});
-
-	return schema.validate(customer);
-}
-
-module.exports = {
-	validate: validateCustomer,
-	Customer,
-};
+module.exports = Customer

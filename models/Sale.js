@@ -59,16 +59,4 @@ const salesSchema = new mongoose.Schema({
 salesSchema.plugin(timestampsPlugin);
 const Sale = mongoose.model('Sale', salesSchema);
 
-function validateSale(sale) {
-	const schema = Joi.object({
-		id: Joi.string().required(),
-		id: Joi.string().required(),
-	});
-
-	return schema.validate(sale);
-}
-
-module.exports = {
-	Sale,
-	validate: validateSale,
-};
+module.exports = Sale

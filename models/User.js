@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = function () {
 	const token = jwt.sign(
 		{ _id: this._id, email: this.email, isAdmin: this.isAdmin },
-		config.get('jwtPrivatekey')
+		config.get('jwtPrivateKey')
 	);
 
 	return token;
@@ -40,18 +40,4 @@ userSchema.methods.generateAuthToken = function () {
 userSchema.plugin(timestampPlugin);
 const User = mongoose.model('User', userSchema);
 
-function validateUser(user) {
-	const schema = Joi.object({
-		name: Joi.string().required().min(3).max(255).trim(),
-		email: Joi.string().required().email().min(6).max(255),
-		password: Joi.string().required().min(5).max(255),
-		isAdmin: Joi.bool(),
-	});
-
-	return schema.validate(user);
-}
-
-module.exports = {
-	validate: validateUser,
-	User,
-};
+module.exports = User

@@ -1,10 +1,7 @@
+const { APIException } = require('../errors/api.error');
+
 module.exports = function (err, req, res, next) {
-	// error
-	// warn
-	// info -> default
-	// verbose
-	// debug
-	// sily
-	res.status(500).send(err);
-	next();
+  const httpError = new APIException();
+  res.status(httpError.status).json({ error: httpError.message });
+  next();
 };
