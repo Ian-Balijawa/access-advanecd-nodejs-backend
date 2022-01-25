@@ -1,12 +1,17 @@
-const gravatar = require('gravatar');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const { BadRequest } = require('../errors/api.error');
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const UserModel = require('../models/User');
+const validateUserPayLoad = require('../validations/user');
+const { BadRequest, ForbiddenService } = require('../errors/api.error');
+const { logger } = require('../utils/logger');
 
-const { save, get: getUser, isUserExists } = require('../services/user');
+const {
+	get: getUser,
+	createUser,
+	isUserExists,
+	getAll,
+} = require('../services/user');
 
 exports.test = async (req, res, next) => {
 	try {
@@ -17,169 +22,176 @@ exports.test = async (req, res, next) => {
 	}
 };
 
+/**
+ *
+ * @param {RequestObject} req
+ * @param {ResponseObject} res
+ * @returns {Response} yes or no message for authorization
+ */
 exports.authorizedUsertest = async (req, res) => {
-	try {
-		jwt.verify(req.token, appSecret, (err, authData) => {
-			//jwt.verify check user has authenticate token or not that he was get after successfully login and if he has authenticate token then he pass this middleware [HERE WE CHECK AUTHENTICATION]
-			if (err) {
-				//user token is invalid
-				// res.sendStatus(403);
-				console.log(
-					'You are not authenticate user so cannot Access This API : ' + err
-				);
-				throw (
-					'You are not authenticate user so cannot Access This API : ' + err
-				);
-			} else {
-				if (authData.isAdmin == true) {
-					//[HERE WE CHECK ONLY AUTHORIZED USER CAN ACCESS THIS API]
-					// res.json({ msg: "Authorized test Works", authData }); //here for testing purpose we just return in terms of response loggedin user data you can do whatever you want to do with authenticate and authorize api
-					handleResponse({
-						res,
-						data: 'User is Admin where he can access Authorized API',
-					});
-				} else {
-					// res.sendStatus(403); //if user is authenticate successful but user is not authorize person so response will send forbidden//no access of this API
+	const authToken = req.headers();
 
-					console.log('You Have No Authority To Access This API : ' + err);
-					throw 'You Have No Authority To Access This API : ' + err;
-				}
-			}
+	const decodedUserPayLoad = jwt.verify(authToken, config.get('jwtPrivateKey'));
+	if (!decodedUserPayLoad) {
+		const httpError = new BadRequest('Access Denied. No token Provided.');
+
+		logger.error(httpError.message);
+
+		return res.status(httpError.status).json({ error: httpError.message });
+	}
+
+	if (!authData.isAdmin) {
+		const httpError = new ForbiddenService(
+			'You Have No Authority To Access This API :'
+		);
+
+		logger.error(httpError.message);
+
+		return res.status(httpError.status).json({ error: httpError });
+	}
+	return res
+		.status(200)
+		.json({ message: 'You are allowed to access this API (:' });
+};
+/**
+ *
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {Response} user account
+ */
+exports.login = async (req, res) => {
+	const { validationError } = validateUserPayLoad(req.body);
+	if (validationError) {
+		const error = new BadRequest(validationError.details[0].message);
+
+		logger.error(error.message);
+
+		return res.status(error.status).json({
+			error: error.message,
 		});
-	} catch (err) {
-		handleError({ res, err });
 	}
-};
+	const { email, password } = req.body;
+	const user = await UserModel.findOne({ email }).select('-password');
 
-exports.login = async (req, res, next) => {
-	try {
-		const { errors, isValid } = validateLoginInput(req.body); //here we pulled out errors and isValid from validateRegisterInput() this function where re.body include everything that sent to its routes in this case name,email,mobile and password
+	if (!user) {
+		const httpError = new UserNotFound('Invalid User. User Not Found! ');
 
-		// Check Validation
-		if (!isValid) {
-			//if isValid is not empty its mean errors object has got some errors so in this case it will redirect to the register
-			// return res.status(400).json(errors);
-			if (errors.email) {
-				throw errors.email;
-			} else {
-				throw errors.password;
-			}
-		}
-		//if (!req.body.email) throw 'Please provide a valid email';
-		let user = await getUser(req.body.email, 'email'); //get user by email or id
-		if (!user)
-			throw 'No user exists in system with this email, Please provide a registerd email.';
-		//if (!await user.verifyPassword(req.body.password)) throw 'wrong password provided'
-		// Check Password
-		bcrypt.compare(req.body.password, user.password).then(async (isMatch) => {
-			if (isMatch) {
-				// res.json({ msg: "Success" });
+		logger.error(httpError.message);
 
-				// User Matched
-
-				// const tokenObj = {
-				//   id: user.id,
-				//   isAdmin: user.isAdmin,
-				//   name: user.name,
-				//   gender: user.gender,
-				//   avatar: user.avatar,
-				//   email: user.email
-				// }; // Create JWT Payload
-
-				let tokenObj = {
-					userId: user._id,
-					name: user.name,
-					isAdmin: user.isAdmin,
-					salt: user.salt,
-				}; // Create JWT Payload
-
-				tokenObj.accessToken = await generateJwtToken(tokenObj); //generateJwtToken return token and we will save in tokenObj.accessToken
-
-				user.password = null;
-				handleResponse({ res, data: tokenObj.accessToken });
-			} else {
-				return res.status(400).json({ password: 'Password incorrect' });
-			}
+		return res.status(httpError.status).json({
+			error: httpError.message,
 		});
-	} catch (err) {
-		handleError({ res, err });
 	}
-};
 
-exports.register = async (req, res, next) => {
-	try {
-		const { errors, isValid } = validateRegisterInput(req.body); //here we pulled out errors and isValid from validateRegisterInput() this function where re.body include everything that sent to its routes in this case name,email,mobile and password
+	const validPasswword = await bcrypt.compare(password, user.password);
 
-		// Check Validation
-		if (!isValid) {
-			//if isValid is not empty its mean errors object has got some errors so in this case it will redirect to the register
-			return res.status(400).json(errors);
-		}
+	if (!validPasswword) {
+		const httpError = new BadRequest('Invalid email or password');
 
-		let isUserExist = await isUserExists(req.body.email, 'email');
-
-		if (isUserExist) {
-			console.log('user email is already registered !!');
-			return res
-				.status(400)
-				.json({ msg: 'user email is already registered !!' });
-		} else {
-			console.log('user email is unique ');
-
-			const avatar = gravatar.url(req.body.email, {
-				s: '200', // Size
-				r: 'pg', // Rating
-				d: 'mm', // Default
-			});
-
-			const newUser = {
-				name: req.body.name,
-				email: req.body.email,
-				profilePic: avatar,
-				password: req.body.password,
-			};
-
-			bcrypt.genSalt(10, (err, salt) => {
-				bcrypt.hash(newUser.password, salt, (err, hash) => {
-					if (err) throw err;
-					newUser.password = hash; //set password to hash password
-					newUser.salt = salt;
-
-					(async function saveUser() {
-						let user = await save(newUser);
-						let tokenObj = {
-							userId: user._id,
-							isAdmin: user.isAdmin,
-							salt: user.salt,
-						};
-						user.password = null; //for sending res we set password to null just for security reason
-						// user.token = await generateJwtToken(tokenObj);
-						handleResponse({ res, data: tokenObj });
-					})();
-				});
-			});
-		}
-	} catch (err) {
-		handleError({ res, err });
+		return res.status(httpError.status).json({ error: httpError.message });
 	}
-};
 
-exports.getUserByIdorEmail = async (req, res) => {
-const {id, email} = req.body;
-
-	try {
-		let user = await getUser(req.body._id);
-		handleResponse({ res, data: user });
-	} catch (err) {
-		handleError({ res, err });
-	}
+	const account = user;
+	return res.status(200).json({ account });
 };
 
 /**
- * 
- * @param {RequestObject} req 
- * @param {ResponseObject} res 
- * @returns {object} current user
+ *
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {Response} created User
+ */
+exports.signUp = async (req, res) => {
+	const { name, email, password, isAdmin } = req.body;
+
+	const validationError = validateUserPayLoad({
+		name,
+		email,
+		password,
+		isAdmin,
+	});
+
+	if (validationError) {
+		const httpError = new BadRequest(validationError.details[0].message);
+
+		return res.status(httpError.status).json({ error: httpError.message });
+	}
+
+	const result = isUserExists(email);
+
+	if (result) {
+		const error = new BadRequest(
+			'This email has already been registered. Register with another email'
+		);
+
+		logger.error(error.message);
+
+		return res.status(error.status).json({
+			error: error.message,
+		});
+	}
+
+	return isAdmin === undefined
+		? res
+				.status(200)
+				.json({ user: await createUser({ name, email, password }) })
+		: res
+				.status(200)
+				.json({ user: await createUser({ name, email, password, isAdmin }) });
+};
+
+/**
+ *
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {Response} user
+ */
+exports.getUserById = async (req, res) => {
+	const { id } = req.body;
+
+	let user = await getUser(id);
+	return res.status(200).json({ user });
+};
+
+/**
+ *
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {Response} list of all users
+ */
+exports.getAllUsers = async (req, res) => {
+	const allUsers = await getAll();
+	if (!allUsers) {
+		const error = new UserNotFound('No allUsers in the Database');
+
+		logger.error(error.message);
+
+		return res.status(error.status).json({
+			error: error.message,
+		});
+	}
+
+	return res.status(200).json({ users });
+};
+
+/**
+ *
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {Response} user
+ */
+exports.getUserByEmail = async (req, res) => {
+	const { email } = req.body;
+
+	let user = await getUser(email, 'email');
+	return res.status(200).json({ user });
+};
+
+/**
+ *
+ * @param {RequestObject} req
+ * @param {ResponseObject} res
+ * @returns {Response} current user
  */
 exports.getUserByAuthenticationToken = async (req, res) => {
 	const authToken = req.header('x-auth-token');
@@ -191,5 +203,5 @@ exports.getUserByAuthenticationToken = async (req, res) => {
 	const decodedUserPayLoad = jwt.verify(authToken, config.get('jwtPrivateKey'));
 
 	let user = await getUser(decodedUserPayLoad._id);
-	return user;
+	return res.status(200).json({ user });
 };

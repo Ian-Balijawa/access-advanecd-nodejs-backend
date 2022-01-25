@@ -3,37 +3,66 @@ const bcrypt = require('bcrypt');
 const { BadRequest } = require('../errors/api.error');
 
 /**
- *
- * @param {Object} userData
- * @returns {object} new saved user
+ * 
+ * @param {object} userData 
+ * @returns {object} newly created user
  */
-exports.save = async (userData) => {
-	let newUser = new UserModel(userData);
-	newUser = await newUser.save();
-	return newUser;
-};
+exports.createUser = async (userData) => {
 
+	const userData =
+		'isAdmin' in JSON.parse(req.body)
+			? _.pick(req.body, ['name', 'email', 'password', 'isAdmin'])
+			: _.pick(req.body, ['name', 'email', 'password']);
+
+	const salt = await bcrypt.genSalt(10);
+	userData.password = await bcrypt.hash(userData.password, salt);
+
+	let user = new UserModel({
+		name: userData.name,
+		email: userData.email,
+		password: userData.password,
+		isAdmin: userData.isAdmin,
+	});
+	return await user.save();
+}
 /**
  * Finds the first user document that matches the given argument
- * @param {String} idOrEmail
+ * we still wouldn't want the client be able to view user passwords even though they're hashed.
+ * we want to elimate the chance of a hacker landing on our hashed password.
+ * so we send a user object but without the password
+ * @param {String} id Or Email or any field
  * @param {String} fieldName
  * @returns {object} user document or object
  */
-exports.getUser = async (idOrEmail, fieldName = '_id') => {
-	const user = await UserModel.findOne({ [fieldName]: idOrEmail + '' }).select(
+exports.getUser = async (fieldValue, fieldName = '_id') => {
+	const user = await UserModel.findOne({ [fieldName]: fieldValue }).select(
 		'-password'
 	);
 	return user;
 };
 
 /**
- * Creates a countDocuments query: counts the number of documents that match filter.
- * @param { string } idOrEmail
- * @param { string } fieldName
- * @returns {Number} number of documents that match user
+ * 	we still wouldn't want the client be able to view user passwords even though they're hashed.
+	we want to elimate the chance of a hacker landing on our hashed password.
+	so we send a user object but without the password
+ * @returns all users in the database
  */
-exports.isUserExists = async (idOrEmail, fieldName = '_id') => {
-	return await UserModel.countDocuments({ [fieldName]: idOrEmail });
+exports.getAll = async () => {
+	
+	const users = await UserModel.find({}).select('-password');
+	return users;
+};
+
+/**
+ * Creates a countDocuments query: counts the number of documents that match filter.
+ * @param { string } user email
+ * @returns {Boolean} whether or not a user document exists in the database
+ */
+exports.isUserExists = async (email) => {
+	
+	const result = await UserModel.find({ email });
+	
+	return result ? true: false;
 };
 
 /**
@@ -66,7 +95,18 @@ exports.updateUser = async (id, lastestUpdate) => {
  */
 exports.deleteUser = async (id) => {
 	const deletedUser = await UserModel.deleteMany({ _id: id });
-	return deletedUser;
+
+	if (!deletedUser) {
+		const error = new UserNotFound('No user with given id found.');
+
+		logger.error(error.message);
+
+		return res.status(error.status).json({
+			error: error.message,
+		});
+	}
+
+	return res.status(200).json({ deletedUser });
 };
 
 /**
@@ -75,7 +115,22 @@ exports.deleteUser = async (id) => {
  */
 exports.deleteAllUsers = async () => {
 	const deletedUsers = await UserModel.deleteMany({});
-	return deletedUsers;
+
+		logger.info(deletedUsers);
+
+		if (!deletedUsers) {
+			const error = new UserNotFound(
+				'No users found in the database. All users must have been already deleted previously'
+			);
+
+			logger.error(error.message);
+
+			return res.status(error.status).json({
+				error: error.message,
+			});
+		}
+
+		return res.status(200).json({ deletedUsers });
 };
 
 /**
