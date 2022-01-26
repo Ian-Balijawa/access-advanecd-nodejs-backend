@@ -39,6 +39,17 @@ exports.getUser = async (fieldValue, fieldName = '_id') => {
 };
 
 /**
+ * 
+ * @param {string} fieldValue 
+ * @param {string} fieldName 
+ * @returns {object} user document or object containing a password hash
+ */
+exports.getUserWithHashedPassword = async (fieldValue, fieldName = '_id') => {
+	const user = await UserModel.findOne({ [fieldName]: fieldValue });
+	return user;
+};
+    
+/**
  * 	we still wouldn't want the client be able to view user passwords even though they're hashed.
 	we want to elimate the chance of a hacker landing on our hashed password.
 	so we send a user object but without the password

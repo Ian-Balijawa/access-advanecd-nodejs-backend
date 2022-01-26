@@ -1,10 +1,10 @@
 const { BadRequest } = require('../errors/api.error');
-const { getUser } = require('../services/user');
+const { getUserWithHashedPassword } = require('../services/user');
 const bcrypt = require('bcrypt');
 
-module.exports = function (req, res, next) {
+module.exports = async (req, res, next) => {
 	const { password, email } = req.body;
-	const user = await getUser(email);
+	const user = await getUserWithHashedPassword(email, (fieldName = 'email'));
 
 	const validPasswword = await bcrypt.compare(password, user.password);
 

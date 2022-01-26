@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const isAdmin = require('../middlewares/admin');
-const requireLogin = require('../middlewares/authCheck');
+const authenticate = require('../middlewares/authCheck');
 const validateObjectId = require('../middlewares/validateObjectId');
 const UserModel = require('../models/User');
 const { validateUserPayLoad } = require('../middlewares/validateRequestBody');
@@ -21,18 +21,18 @@ const {
 } = require('../services/user');
 
 // geting all users
-router.get('/', [requireLogin, isAdmin], getAllUsers);
+router.get('/', [authenticate, isAdmin], getAllUsers);
 
 // getting a currently logged in user
-router.get('/me', requireLogin, validateObjectId, getUserByAuthenticationToken);
+router.get('/me', authenticate, validateObjectId, getUserByAuthenticationToken);
 
 // getting a specific user
-router.get('/:id', requireLogin, isAdmin, validateObjectId, getUserById);
+router.get('/:id', authenticate, validateObjectId, isAdmin, getUserById);
 
 // for the chance of letting admins to explicitly add users
 router.post(
 	'/',
-	[requireLogin, isAdmin, validateUserPayLoad],
+	[authenticate, isAdmin, validateUserPayLoad],
 	async (req, res) => {
 		const { email } = req.body;
 
@@ -53,7 +53,7 @@ router.post(
 
 router.put(
 	'/:id',
-	[requireLogin, isAdmin, validateObjectId, validateUserPayLoad],
+	[authenticate, isAdmin, validateObjectId, validateUserPayLoad],
 	async (req, res) => {
 		const { id: id } = req.params;
 		const { name, email, isAdmin } = req.body;
@@ -64,8 +64,8 @@ router.put(
 	}
 );
 
-router.delete('/:id', [requireLogin, isAdmin, validateObjectId], deleteUser);
+router.delete('/:id', [authenticate, isAdmin, validateObjectId], deleteUser);
 
-router.delete('/', [requireLogin, isAdmin], deleteAllUsers);
+router.delete('/', [authenticate, isAdmin], deleteAllUsers);
 
 module.exports = router;
