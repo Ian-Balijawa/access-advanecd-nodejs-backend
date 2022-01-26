@@ -5,9 +5,9 @@ const UserModel = require('../models/User');
 const validateUserPayLoad = require('../validations/user');
 const { BadRequest, ForbiddenService } = require('../errors/api.error');
 const { logger } = require('../utils/logger');
-
+const { handleResponse, handleError } = require('../utils/requestHandlers');
 const {
-	get: getUser,
+	getUser,
 	createUser,
 	isUserExists,
 	getAll,
@@ -102,13 +102,12 @@ exports.login = async (req, res) => {
  * @returns {Response} created User
  */
 exports.signUp = async (req, res) => {
-	const { name, email, password, isAdmin } = req.body;
+	const { name, email, password } = req.body;
 
 	const validationError = validateUserPayLoad({
 		name,
 		email,
 		password,
-		isAdmin,
 	});
 
 	if (validationError) {
@@ -131,20 +130,16 @@ exports.signUp = async (req, res) => {
 		});
 	}
 
-	return isAdmin === undefined
-		? res
-				.status(200)
-				.json({ user: await createUser({ name, email, password }) })
-		: res
-				.status(200)
-				.json({ user: await createUser({ name, email, password, isAdmin }) });
+	return res
+		.status(200)
+		.json({ user: await createUser({ name, email, password }) });
 };
 
 /**
  *
  * @param {Request} req
  * @param {Response} res
- * @returns {Response} user
+ * @returns {Promise <Response>} user
  */
 exports.getUserById = async (req, res) => {
 	const { id } = req.body;
@@ -157,7 +152,7 @@ exports.getUserById = async (req, res) => {
  *
  * @param {Request} req
  * @param {Response} res
- * @returns {Response} list of all users
+ * @returns {Promise <Response>} list of all users
  */
 exports.getAllUsers = async (req, res) => {
 	const allUsers = await getAll();

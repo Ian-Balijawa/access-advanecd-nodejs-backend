@@ -17,6 +17,7 @@ const {
 	deleteUser,
 	isUserExists,
 	createUser,
+	deleteAllUsers,
 } = require('../services/user');
 
 // geting all users
@@ -63,18 +64,8 @@ router.put(
 	}
 );
 
-router.delete(
-	'/:id',
-	[requireLogin, isAdmin, validateObjectId],
-	async (req, res) => {
-		const { id } = req.params;
+router.delete('/:id', [requireLogin, isAdmin, validateObjectId], deleteUser);
 
-		return deleteUser(id);
-	}
-);
-
-router.delete('/', [requireLogin, isAdmin], async (req, res) => {
-	return UserModel.deleteMany({});
-});
+router.delete('/', [requireLogin, isAdmin], deleteAllUsers);
 
 module.exports = router;
