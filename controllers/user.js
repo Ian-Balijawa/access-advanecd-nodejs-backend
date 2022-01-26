@@ -4,13 +4,14 @@ const config = require('config');
 const UserModel = require('../models/User');
 const validateUserPayLoad = require('../validations/user');
 const { BadRequest, ForbiddenService } = require('../errors/api.error');
+const UserNotFound = require("../errors/user.error")
 const { logger } = require('../utils/logger');
 const { handleResponse, handleError } = require('../utils/requestHandlers');
 const {
 	getUser,
 	createUser,
 	isUserExists,
-	getAll,
+	getAll,update
 } = require('../services/user');
 
 exports.test = async (req, res, next) => {
@@ -97,24 +98,12 @@ exports.login = async (req, res) => {
 
 /**
  *
- * @param {Request} req
- * @param {Response} res
- * @returns {Response} created User
+ * @param {RequestObject} req
+ * @param {ResponseObject} res
+ * @returns {Promise <Response>} user account
  */
 exports.signUp = async (req, res) => {
 	const { name, email, password } = req.body;
-
-	const validationError = validateUserPayLoad({
-		name,
-		email,
-		password,
-	});
-
-	if (validationError) {
-		const httpError = new BadRequest(validationError.details[0].message);
-
-		return res.status(httpError.status).json({ error: httpError.message });
-	}
 
 	const result = isUserExists(email);
 
@@ -171,9 +160,9 @@ exports.getAllUsers = async (req, res) => {
 
 /**
  *
- * @param {Request} req
- * @param {Response} res
- * @returns {Response} user
+ * @param {RequestObject} req
+ * @param {ResponseObject} res
+ * @returns {Promise <Response>} user
  */
 exports.getUserByEmail = async (req, res) => {
 	const { email } = req.body;
@@ -186,7 +175,7 @@ exports.getUserByEmail = async (req, res) => {
  *
  * @param {RequestObject} req
  * @param {ResponseObject} res
- * @returns {Response} current user
+ * @returns {Promise <Response>} current user
  */
 exports.getUserByAuthenticationToken = async (req, res) => {
 	const authToken = req.header('x-auth-token');
@@ -199,4 +188,113 @@ exports.getUserByAuthenticationToken = async (req, res) => {
 
 	let user = await getUser(decodedUserPayLoad._id);
 	return res.status(200).json({ user });
+};
+
+/**
+ *
+ * @param {RequestObject} req
+ * @param {ResponseObject} res
+ * @returns {Promise <Response>} newly created user
+ */
+exports.createUser = async (req, res) => {
+	const { email } = req.body;
+
+	const result = isUserExists(email);
+	if (result) {
+		const httpError = new BadRequest(
+			'User with the given email exists in the database'
+		);
+		return res.status(httpError.status).json({ error: httpError.message });
+	}
+
+	const userData = _.pick(req.body, ['name', 'email', 'password']);
+
+	const salt = await bcrypt.genSalt(10);
+	userData.password = await bcrypt.hash(userData.password, salt);
+
+	let user = new UserModel({
+		name: userData.name,
+		email: userData.email,
+		password: userData.password,
+		isAdmin: userData.isAdmin,
+	});
+	user = await user.save();
+
+	return res.status(200).json({ newUser });
+};
+
+/**
+ * 
+ * @param {RequestObject} req 
+ * @param {ResponseObject} res 
+ * @returns {Promise<Response>}
+ */
+exports.updateUser = async (req, res) => {
+	const { id: id } = req.params;
+	const { name, email, isAdmin } = req.body;
+
+	const thereExistsAUser = isUserExists(email);
+
+	if (!thereExistsAUser) {
+		const error = new BadRequest(
+			'This email has already been registered. Register with another email'
+		);
+
+		logger.error(error.message);
+
+		return res.status(error.status).json({
+			error: error.message,
+		});
+	}
+
+	const userUpdate = update(id, { name, email, isAdmin });
+
+	return res.status(200).json({ user: userUpdate });
+}
+
+/**
+ * 
+ * @param {RequestObject} req 
+ * @param {ResponseObject} res 
+ * @returns {Promise<DeletedUser>}
+ */
+exports.deleteUser = async (req,res) => {
+	const { id: id } = req.params;
+
+	const deletedUser = await UserModel.deleteMany({ _id: id });
+	
+if (!deletedUser) {
+	const httpError = new UserNotFound('No user with given id found.');
+
+	logger.error(httpError.message);
+
+	return res.status(httpError.status).json({
+		error: httpError.message,
+	});
+}
+	return res.status(httpError.status).json({deletedUser})
+}
+
+/**
+ *
+ * @returns {Promise <Users[]>} list of deleted users
+ */
+exports.deleteAll = async () => {
+	const deletedUsers = await UserModel.deleteMany({});
+
+		logger.info(deletedUsers);
+
+		if (!deletedUsers) {
+			const error = new UserNotFound(
+				'No users found in the database. All users must have been already deleted previously'
+			);
+
+			logger.error(error.message);
+
+			return res.status(error.status).json({
+				error: error.message,
+			});
+		}
+
+	return deletedUsers;
 };

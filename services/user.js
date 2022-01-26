@@ -64,7 +64,7 @@ exports.getAll = async () => {
 /**
  * Creates a countDocuments query: counts the number of documents that match filter.
  * @param { string } user email
- * @returns {Boolean} whether or not a user document exists in the database
+ * @returns {Promise <Boolean> } whether or not a user document exists in the database
  */
 exports.isUserExists = async (email) => {
 	
@@ -77,9 +77,9 @@ exports.isUserExists = async (email) => {
  *
  * @param {string} id
  * @param {object} lastestUpdate
- * @returns {object} newUpdatedUser
+ * @returns {Promise <object> }newUpdatedUser
  */
-exports.updateUser = async (id, lastestUpdate) => {
+exports.update = async (id, lastestUpdate) => {
 	const { name, email, isAdmin } = lastestUpdate;
 
 	let userUpdate = await UserModel.findByIdAndUpdate(
@@ -99,46 +99,11 @@ exports.updateUser = async (id, lastestUpdate) => {
 /**
  *
  * @param {string} id
- * @returns {object} deleted user
+ * @returns {Promise <object> }deleted user
  */
-exports.deleteUser = async (id) => {
-	const deletedUser = await UserModel.deleteMany({ _id: id });
-
-	if (!deletedUser) {
-		const error = new UserNotFound('No user with given id found.');
-
-		logger.error(error.message);
-
-		return res.status(error.status).json({
-			error: error.message,
-		});
-	}
-
-	return res.status(200).json({ deletedUser });
-};
-
-/**
- *
- * @returns {object[]} list of deleted users
- */
-exports.deleteAllUsers = async () => {
-	const deletedUsers = await UserModel.deleteMany({});
-
-		logger.info(deletedUsers);
-
-		if (!deletedUsers) {
-			const error = new UserNotFound(
-				'No users found in the database. All users must have been already deleted previously'
-			);
-
-			logger.error(error.message);
-
-			return res.status(error.status).json({
-				error: error.message,
-			});
-		}
-
-		return res.status(200).json({ deletedUsers });
+exports.delete = async (id) => {
+	
+	return deletedUser;
 };
 
 /**
@@ -146,7 +111,7 @@ exports.deleteAllUsers = async () => {
  * @param {string} id
  * @param {string} currentPassword
  * @param {string} newPassword
- * @returns {object} a new user update
+ * @returns {Promise <object> } a new user update
  */
 exports.changePassword = async (id, currentPassword, newPassword) => {
 	const user = await UserModel.updateOne({ _id: id });
