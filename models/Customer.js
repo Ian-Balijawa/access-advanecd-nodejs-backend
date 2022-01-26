@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const Joi = require('joi');
 const timestampsPlugin = require('mongoose-timestamp');
 
-const userSchema = new mongoose.Schema({
+const customerSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
@@ -24,7 +23,7 @@ const userSchema = new mongoose.Schema({
 		type: Boolean,
 		required: true,
 		default: function (value) {
-			return this.ProductsBought > 1 ? true : false;
+			return this.productsBought > 1 ? true : false;
 		},
 	},
 	phone: {
@@ -33,8 +32,9 @@ const userSchema = new mongoose.Schema({
 		minlength: 10,
 		maxlength: 10,
 	},
-	ProductsBought: {
+	productsBought: {
 		type: Number,
+		required: true,
 		min: 0,
 		trim,
 	},
@@ -43,4 +43,4 @@ const userSchema = new mongoose.Schema({
 customerSchema.plugin(timestampsPlugin);
 const Customer = mongoose.model('Customer', customerSchema);
 
-module.exports = Customer
+module.exports = Customer;

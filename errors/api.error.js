@@ -36,8 +36,8 @@ class ForbiddenService {
   constructor(msg) {
     this.name = "ServiceForbidden";
     this.message =
-      msg ||
-      "We see that you're authenticated, but your're not an admin, so you're Forbidden from accessing this resource :(";
+			msg ||
+			"We see that you're userAuthenticatedd, but your're not an admin, so you're Forbidden from accessing this resource :(";
     this.code = 5003;
     this.status = 403;
   }

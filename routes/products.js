@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
 const isAdmin = require('../middlewares/admin');
-const authenticate = require('../middlewares/authCheck');
+const userAuthenticated = require('../middlewares/authCheck');
 const validateObjectId = require('../middlewares/validateObjectId');
 // const ProductController = require('../controllers/Product.controller');
 const { BadRequest } = require('../errors/system.error');
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 // getting a single Product from the database by an admin
 router.get(
 	'/:id',
-	[authenticate, isAdmin, validateObjectId],
+	[userAuthenticated, isAdmin, validateObjectId],
 	async (req, res) => {
 		const { id } = req.params;
 
@@ -50,7 +50,7 @@ router.get(
 );
 
 // incase we need some kind of authentication
-router.get('/', authenticate, async (req, res) => {
+router.get('/', userAuthenticated, async (req, res) => {
 	const result = await Product.find({}).sort({ name: 1 });
 
 	if (!result) {
@@ -65,7 +65,7 @@ router.get('/', authenticate, async (req, res) => {
 	return res.status(200).json({ result });
 });
 
-router.post('/', [authenticate, isAdmin], async (req, res) => {
+router.post('/', [userAuthenticated, isAdmin], async (req, res) => {
 	const ProductData = req.body;
 
 	const { validationError } = validateProduct(ProductData);
@@ -111,7 +111,7 @@ router.post('/', [authenticate, isAdmin], async (req, res) => {
 
 router.put(
 	'/:id',
-	[authenticate, isAdmin, validateObjectId],
+	[userAuthenticated, isAdmin, validateObjectId],
 	async (req, res) => {
 		const { id } = req.params;
 
@@ -147,7 +147,7 @@ router.put(
 );
 
 // delete all Products from the database
-router.delete('/', [authenticate, isAdmin], async (req, res) => {
+router.delete('/', [userAuthenticated, isAdmin], async (req, res) => {
 	const deletedData = await Product.deleteMany();
 
 	if (!deletedData) {
@@ -169,7 +169,7 @@ router.delete('/', [authenticate, isAdmin], async (req, res) => {
 // to delete a specific Product from the database
 router.delete(
 	'/:id',
-	[authenticate, isAdmin, validateObjectId],
+	[userAuthenticated, isAdmin, validateObjectId],
 	async (req, res) => {
 		const { id: id } = req.params;
 
