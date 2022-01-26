@@ -1,19 +1,10 @@
 // require('express-async-errors');
 const express = require('express');
 const initializeApp = require('./start/initializeApp');
-const mongoose = require('mongoose');
 const config = require('config');
 const { logger } = require('./utils/logger');
-/**
- * require agenda, but still dont what it does yet
- * const Agenda = require('agenda');
- *  const Agendash = require('agendash');
- *  const agenda = new Agenda({
- *    db: { address: config.db.master},
- *    maxConcurrency: 5,
- *    defaultConcurrency: 1
- *  });
- */
+
+//TODO: something about requiring agenda npm package and initiating configurations
 
 const app = express();
 

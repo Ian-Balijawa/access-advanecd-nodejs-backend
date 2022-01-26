@@ -54358,3 +54358,1191 @@ SyntaxError: Identifier 'userData' has already been declared
     }
   ]
 }
+2022-01-26 07:27:56 [error]: 	uncaughtException: Identifier 'userData' has already been declared
+D:\code\access-backend\services\user.js:12
+	const userData =
+	      ^
+
+SyntaxError: Identifier 'userData' has already been declared
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\controllers\user.js:14:5)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\services\\user.js:12\n\tconst userData =\n\t      ^\n\nSyntaxError: Identifier 'userData' has already been declared\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\controllers\\user.js:14:5)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:27:56 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 632,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 59351040,
+      "heapTotal": 37437440,
+      "heapUsed": 24932312,
+      "external": 22041478,
+      "arrayBuffers": 18583926
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49498
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "D:\\code\\access-backend\\controllers\\user.js",
+      "function": null,
+      "line": 14,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2022-01-26 07:28:57 [error]: 	uncaughtException: Identifier 'userData' has already been declared
+D:\code\access-backend\services\user.js:12
+	const userData =
+	      ^
+
+SyntaxError: Identifier 'userData' has already been declared
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\controllers\user.js:14:5)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\services\\user.js:12\n\tconst userData =\n\t      ^\n\nSyntaxError: Identifier 'userData' has already been declared\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\controllers\\user.js:14:5)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:28:57 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 5380,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 62537728,
+      "heapTotal": 39010304,
+      "heapUsed": 22169464,
+      "external": 23860413,
+      "arrayBuffers": 18385106
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49558
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "D:\\code\\access-backend\\controllers\\user.js",
+      "function": null,
+      "line": 14,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2022-01-26 07:29:37 [error]: 	uncaughtException: Identifier 'userData' has already been declared
+D:\code\access-backend\services\user.js:12
+	const userData =
+	      ^
+
+SyntaxError: Identifier 'userData' has already been declared
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\controllers\user.js:14:5)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\services\\user.js:12\n\tconst userData =\n\t      ^\n\nSyntaxError: Identifier 'userData' has already been declared\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\controllers\\user.js:14:5)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:29:37 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 512,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 59105280,
+      "heapTotal": 37437440,
+      "heapUsed": 24904312,
+      "external": 22021029,
+      "arrayBuffers": 18575734
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49598
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "D:\\code\\access-backend\\controllers\\user.js",
+      "function": null,
+      "line": 14,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2022-01-26 07:29:53 [error]: 	uncaughtException: Identifier 'userData' has already been declared
+D:\code\access-backend\services\user.js:12
+	const userData =
+	      ^
+
+SyntaxError: Identifier 'userData' has already been declared
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\controllers\user.js:14:5)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\services\\user.js:12\n\tconst userData =\n\t      ^\n\nSyntaxError: Identifier 'userData' has already been declared\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\controllers\\user.js:14:5)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:29:53 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 6712,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 61952000,
+      "heapTotal": 37437440,
+      "heapUsed": 25028344,
+      "external": 21334825,
+      "arrayBuffers": 18571345
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49615
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "D:\\code\\access-backend\\controllers\\user.js",
+      "function": null,
+      "line": 14,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2022-01-26 07:30:17 [error]: 	uncaughtException: Identifier 'userData' has already been declared
+D:\code\access-backend\services\user.js:12
+	const userData =
+	      ^
+
+SyntaxError: Identifier 'userData' has already been declared
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\controllers\user.js:14:5)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\services\\user.js:12\n\tconst userData =\n\t      ^\n\nSyntaxError: Identifier 'userData' has already been declared\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\controllers\\user.js:14:5)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:30:17 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 5224,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 62435328,
+      "heapTotal": 37699584,
+      "heapUsed": 25153888,
+      "external": 21334825,
+      "arrayBuffers": 18571345
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49638
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "D:\\code\\access-backend\\controllers\\user.js",
+      "function": null,
+      "line": 14,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2022-01-26 07:30:25 [error]: 	uncaughtException: Identifier 'userData' has already been declared
+D:\code\access-backend\services\user.js:12
+	const userData =
+	      ^
+
+SyntaxError: Identifier 'userData' has already been declared
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\controllers\user.js:14:5)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\services\\user.js:12\n\tconst userData =\n\t      ^\n\nSyntaxError: Identifier 'userData' has already been declared\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\controllers\\user.js:14:5)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:30:25 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 948,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 61980672,
+      "heapTotal": 37437440,
+      "heapUsed": 24862824,
+      "external": 21334825,
+      "arrayBuffers": 18579537
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49647
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "D:\\code\\access-backend\\controllers\\user.js",
+      "function": null,
+      "line": 14,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2022-01-26 07:30:36 [error]: 	uncaughtException: Identifier 'userData' has already been declared
+D:\code\access-backend\services\user.js:12
+	const userData =
+	      ^
+
+SyntaxError: Identifier 'userData' has already been declared
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\controllers\user.js:14:5)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\services\\user.js:12\n\tconst userData =\n\t      ^\n\nSyntaxError: Identifier 'userData' has already been declared\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\controllers\\user.js:14:5)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:30:36 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 4208,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 59432960,
+      "heapTotal": 37437440,
+      "heapUsed": 24899832,
+      "external": 22021029,
+      "arrayBuffers": 18583926
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49657
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "D:\\code\\access-backend\\controllers\\user.js",
+      "function": null,
+      "line": 14,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2022-01-26 07:32:30 [error]: 	uncaughtException: await is only valid in async functions and the top level bodies of modules
+D:\code\access-backend\middlewares\validatePassword.js:7
+	const user = await getUser(email);
+	             ^^^^^
+
+SyntaxError: await is only valid in async functions and the top level bodies of modules
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\routes\logins.js:8:26)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\middlewares\\validatePassword.js:7\n\tconst user = await getUser(email);\n\t             ^^^^^\n\nSyntaxError: await is only valid in async functions and the top level bodies of modules\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\routes\\logins.js:8:26)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:32:30 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 6652,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 59465728,
+      "heapTotal": 37437440,
+      "heapUsed": 25067856,
+      "external": 22021029,
+      "arrayBuffers": 18575734
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49772
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "D:\\code\\access-backend\\routes\\logins.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2022-01-26 07:32:40 [error]: 	uncaughtException: await is only valid in async functions and the top level bodies of modules
+D:\code\access-backend\middlewares\validatePassword.js:7
+	const user = await getUser(email);
+	             ^^^^^
+
+SyntaxError: await is only valid in async functions and the top level bodies of modules
+    at Object.compileFunction (node:vm:352:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1031:15)
+    at Module._compile (node:internal/modules/cjs/loader:1065:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\code\access-backend\routes\logins.js:8:26)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14) {
+  "error": {},
+  "stack": "D:\\code\\access-backend\\middlewares\\validatePassword.js:7\n\tconst user = await getUser(email);\n\t             ^^^^^\n\nSyntaxError: await is only valid in async functions and the top level bodies of modules\n    at Object.compileFunction (node:vm:352:18)\n    at wrapSafe (node:internal/modules/cjs/loader:1031:15)\n    at Module._compile (node:internal/modules/cjs/loader:1065:27)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\code\\access-backend\\routes\\logins.js:8:26)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)",
+  "exception": true,
+  "date": "Wed Jan 26 2022 10:32:40 GMT+0300 (East Africa Time)",
+  "process": {
+    "pid": 920,
+    "uid": null,
+    "gid": null,
+    "cwd": "D:\\code\\access-backend",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v16.13.2",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\code\\access-backend\\index.js",
+      "--watchAll",
+      "--trace-warnings"
+    ],
+    "memoryUsage": {
+      "rss": 61919232,
+      "heapTotal": 37437440,
+      "heapUsed": 25181736,
+      "external": 21334825,
+      "arrayBuffers": 18571345
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 49782
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:vm",
+      "function": "Object.compileFunction",
+      "line": 352,
+      "method": "compileFunction",
+      "native": false
+    },
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1031,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1065,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1153,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 981,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 822,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1005,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/helpers",
+      "function": "require",
+      "line": 102,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "D:\\code\\access-backend\\routes\\logins.js",
+      "function": null,
+      "line": 8,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1101,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}

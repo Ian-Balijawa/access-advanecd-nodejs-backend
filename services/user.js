@@ -9,10 +9,7 @@ const { BadRequest } = require('../errors/api.error');
  */
 exports.createUser = async (userData) => {
 
-	const userData =
-		'isAdmin' in JSON.parse(req.body)
-			? _.pick(req.body, ['name', 'email', 'password', 'isAdmin'])
-			: _.pick(req.body, ['name', 'email', 'password']);
+	userData = _.pick(req.body, ['name', 'email', 'password']);
 
 	const salt = await bcrypt.genSalt(10);
 	userData.password = await bcrypt.hash(userData.password, salt);
